@@ -24,8 +24,7 @@ export default class Login extends Component {
   handleSubmit(event) {
     const {
       email,
-      password,
-      password_confirmation
+      password
     } = this.state;
 
     axios
@@ -39,8 +38,8 @@ export default class Login extends Component {
         { withCredentials: true }
       )
       .then(response => {
-        console.log("registration res", response);
-        if (response.data.status === 'created') {
+        console.log("login res", response);
+        if (response.data.logged_in) {
           this.props.handleSuccessfulAuth(response.data);
         }
       })
