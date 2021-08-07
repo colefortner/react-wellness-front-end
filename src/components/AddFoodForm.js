@@ -38,9 +38,33 @@ export default class AddFoodForm extends Component {
       protein 
     } = this.state;
 
-    event.preventDefault()
+    axios
+      .post("http://localhost:3001/foods",
+        {
+          food: {
+            food_name: food_name,
+            serving_size: serving_size,
+            calories: calories,
+            total_fat: total_fat,
+            sat_fat: sat_fat,
+            sodium: sodium,
+            total_carbs: total_carbs,
+            fiber: fiber,
+            total_sugars: total_sugars,
+            added_sugars: added_sugars,
+            protein: protein
+          },
+        },
+        { withCredentials: true }
+      )
+      .then(response => {
+        console.log('Create foods', response);
+      })
+      .catch(error => {
+        console.log('Create food error', error);
+      });
 
-    alert(`Your stuff ${food_name} ${calories}`)
+    event.preventDefault();
   }
 
   handleChange(event) {
