@@ -4,6 +4,7 @@ import axios from 'axios';
 import Home from './Home';
 import Dashboard from './Dashboard';
 import Navbar from './Navbar';
+import Foods from './Foods';
 
 export default class App extends Component {
   constructor() {
@@ -86,6 +87,13 @@ export default class App extends Component {
             />
             )} 
             
+            />
+            <Route
+            exact
+            path={"/foods"}
+            render={props => (
+              <Foods />
+            )}
             />
           </Switch>
         </BrowserRouter>
