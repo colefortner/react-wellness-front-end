@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 
 export default class AddDailyDataForm extends Component {
   constructor(props) {
@@ -19,7 +30,11 @@ export default class AddDailyDataForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+
   }
+
+  
 
   handleSubmit(event) {
     const { 
@@ -68,9 +83,11 @@ export default class AddDailyDataForm extends Component {
   }
 
   render(){
+    const { classes } = this.props;
+
     return (
-      <div style={{marginTop: '100px', fontSize: '20px'}}>
-              <form onSubmit = {this.handleSubmit}>
+      // <div style={{marginTop: '100px', fontSize: '20px'}}>
+              <form className={classes} noValidate autoComplete="off" onSubmit = {this.handleSubmit}>
               {/* <form
                 onSubmit={e => {
                   alert(JSON.stringify(e));
@@ -79,8 +96,10 @@ export default class AddDailyDataForm extends Component {
                   reset();
                 }}> */}
           <div>
-            <label htmlFor='date'>Date</label>
-            <input 
+            <TextField
+              id="date"
+              label="date"
+              color="info.dark" 
               type="date" 
               name="date" 
               placeholder="Date" 
@@ -90,85 +109,102 @@ export default class AddDailyDataForm extends Component {
             />
           </div>
           <div>
-            <label htmlFor='weight'>Weight</label>
-            <input 
+            <TextField
+              id="weight" 
+              label="Weight" 
+              color="info.dark"
               type="text" 
               name="weight" 
               placeholder="Weight" 
               value={this.state.weight}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
           </div>
+          
           <div>
-            <label htmlFor='unplug'>Unplug</label>
-            <input 
+            <TextField
+              id="unplug"
+              label="Unplug"
+              color="secondary"
               type="text" 
               name="unplug" 
               placeholder="Unplug" 
               value={this.state.unplug}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
-          </div>
-          <div>
-            <label htmlFor='wake'>Wake</label>
-            <input 
+            <TextField
+              id="wake"
+              label="Wake"
+              color="secondary"
               type="text" 
               name="wake" 
               placeholder="Wake" 
               value={this.state.wake}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
-          </div>
-          <div>
-            <label htmlFor='sleep'>Sleep</label>
-            <input 
+            <TextField
+              id="sleep"
+              label="Sleep"
+              color="secondary"
               type="text" 
               name="sleep" 
               placeholder="Sleep" 
               value={this.state.sleep}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
           </div>
           <div>
-            <label htmlFor='blood_pressure1'>Blood Pressure 1</label>
-            <input 
+            <TextField
+              id="blood_pressure1"
+              label="Blood Pressure 1"
+              color="secondary"
               type="text" 
               name="blood_pressure1" 
               placeholder="Blood Pressure 1" 
               value={this.state.blood_pressure1}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
-          </div>
-          <div>
-            <label htmlFor='blood_pressure2'>Blood Pressure 2</label>
-            <input 
+            <TextField
+              id="blood_pressure2"
+              label="Blood Pressure 2"
+              color="secondary"
               type="text" 
               name="blood_pressure2" 
               placeholder="Blood Pressure 2" 
               value={this.state.blood_pressure2}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
-          </div>
-          <div>
-            <label htmlFor='blood_pressure3'>Blood Pressure 3</label>
-            <input 
+            <TextField
+              id="blood_pressure3"
+              label="Blood Pressure 3"
+              color="secondary"
               type="text" 
               name="blood_pressure3" 
               placeholder="Blood Pressure 3" 
               value={this.state.blood_pressure3}
               onChange={this.handleChange}
               required
+              margin="normal"
             />
           </div>
           <div>
-            <label htmlFor='meditation'>Meditation</label>
-            <input 
+
+            <TextField
+              id="meditation"
+              label="Meditation"
+              color="secondary"
               type="text" 
               name="meditation" 
               placeholder="Meditation" 
@@ -177,9 +213,9 @@ export default class AddDailyDataForm extends Component {
               required
             />
           </div>
-          <button>Add Food</button>
+          <button>Add</button>
         </form>
-      </div>
+      // </div>
     )
   }
 }
