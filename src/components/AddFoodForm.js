@@ -75,7 +75,7 @@ export default class AddFoodForm extends Component {
 
   render(){
     return (
-      <div style={{marginTop: '100px', fontSize: '60px'}}>
+      <div style={{marginTop: '100px', fontSize: '20px'}}>
               <form onSubmit = {this.handleSubmit}>
               {/* <form
                 onSubmit={e => {

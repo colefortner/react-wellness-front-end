@@ -69,7 +69,7 @@ export default class AddDailyDataForm extends Component {
 
   render(){
     return (
-      <div style={{marginTop: '100px', fontSize: '60px'}}>
+      <div style={{marginTop: '100px', fontSize: '20px'}}>
               <form onSubmit = {this.handleSubmit}>
               {/* <form
                 onSubmit={e => {
@@ -96,6 +96,17 @@ export default class AddDailyDataForm extends Component {
               name="weight" 
               placeholder="Weight" 
               value={this.state.weight}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor='unplug'>Unplug</label>
+            <input 
+              type="text" 
+              name="unplug" 
+              placeholder="Unplug" 
+              value={this.state.unplug}
               onChange={this.handleChange}
               required
             />

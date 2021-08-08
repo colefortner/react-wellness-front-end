@@ -5,6 +5,8 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import Navbar from './Navbar';
 import Foods from './Foods';
+import DailyData from './DailyData';
+import TestDisplay from './TestDisplay';
 
 export default class App extends Component {
   constructor() {
@@ -65,6 +67,9 @@ export default class App extends Component {
         <div>
           <Navbar />
         </div>
+        <div>
+          <TestDisplay />
+        </div>
         <BrowserRouter>
           <Switch>
             <Route 
@@ -95,6 +100,14 @@ export default class App extends Component {
               <Foods />
             )}
             />
+
+            <Route
+            exact
+            path={"/daily_data"}
+            render={props => (
+              <DailyData />
+            )}
+            />  
           </Switch>
         </BrowserRouter>
       </div>
