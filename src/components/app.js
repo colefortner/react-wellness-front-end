@@ -64,13 +64,10 @@ export default class App extends Component {
   render() {
     return (
       <div className='app'>
+        <BrowserRouter>
         <div>
           <Navbar />
         </div>
-        <div>
-          <TestDisplay />
-        </div>
-        <BrowserRouter>
           <Switch>
             <Route 
             exact 
@@ -110,6 +107,9 @@ export default class App extends Component {
             />  
           </Switch>
         </BrowserRouter>
+        <div>
+          <TestDisplay />
+        </div>
       </div>
     );
   }
