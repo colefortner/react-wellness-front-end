@@ -1,5 +1,6 @@
 .navbar {
   position: fixed;
+  display: flex;
   top: 0;
   left: 0;
   background-color: blue;
@@ -9,4 +10,18 @@
   padding-left: 40px;
   padding-top: 10px;
   font-size: 20px;
+}
+
+.nav-home {
+  text-align: left;
+  margin-right: 10rem;
+}
+
+.nav-links {
+  margin-right: 2rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }

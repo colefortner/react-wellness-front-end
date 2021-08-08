@@ -1,30 +1,39 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import '../style/navbar.scss';
   
 const Navbar = () => {
   return (
     
       <div>
-        <div>
-          <NavLink to='/' exact activeStyle>
-            Home
-          </NavLink>
-          <NavLink to='/dashboard' activeStyle>
-            Dashboard
-          </NavLink>
-          <NavLink to='/foods' activeStyle>
-            Foods
-          </NavLink>
-          <NavLink to='/daily_data' activeStyle>
-            Daily Data
-          </NavLink>
-          <NavLink to='/blogs' activeStyle>
+        <div className='navbar'>
+          <div className='nav-home'>
+            <NavLink to='/' exact activeStyle>
+              Home
+            </NavLink>
+          </div>
+          <div className='nav-links'>
+            <NavLink to='/dashboard' activeStyle>
+              Dashboard
+            </NavLink>
+          </div>
+          <div className='nav-links'>
+            <NavLink to='/foods' activeStyle>
+             Foods
+           </NavLink>
+          </div>
+          <div className='nav-links'>
+            <NavLink to='/daily_data' activeStyle>
+              Daily Data
+            </NavLink>
+          </div>
+
+          {/* <NavLink to='/blogs' activeStyle>
             Blogs
           </NavLink>
           <NavLink to='/sign-up' activeStyle>
             Sign Up
-          </NavLink>
+          </NavLink> */}
         </div>
         <div>
           <button to='/signin'>Sign In</button>
