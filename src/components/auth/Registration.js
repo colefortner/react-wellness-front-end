@@ -6,6 +6,7 @@ export default class Registration extends Component {
     super(props);
 
     this.state = {
+      first_name: "",
       email: "",
       password: "",
       password_confirmation: "",
@@ -24,6 +25,7 @@ export default class Registration extends Component {
 
   handleSubmit(event) {
     const {
+      first_name,
       email,
       password,
       password_confirmation
@@ -33,6 +35,7 @@ export default class Registration extends Component {
       .post("http://localhost:3001/registrations", 
         {
           user: {
+            first_name: first_name,
             email: email,
             password: password,
             password_confirmation: password_confirmation
@@ -56,6 +59,16 @@ export default class Registration extends Component {
     return (
       <div>
         <form onSubmit = {this.handleSubmit}>
+
+        <input 
+            type="text" 
+            name="first_name" 
+            placeholder="First Name" 
+            value={this.state.first_name}
+            onChange={this.handleChange}
+            required
+          />
+
           <input 
             type="email" 
             name="email" 

@@ -71,7 +71,7 @@ export default class App extends Component {
           <Navbar 
             userEmail={this.state.user.email}
             loggedInStatus={this.state.loggedInStatus}
-            user={this.state.user}
+            firstName={this.state.user.first_name}
           />
         </div>
           <Switch>

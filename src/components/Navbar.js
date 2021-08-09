@@ -33,7 +33,7 @@ const Navbar = props => {
             </NavLink>
           </div>}
           <div>
-            {visible && <p>Hi {props.userEmail}!</p>}
+            {visible && <p>Hi {props.firstName}!</p>}
           </div>
 
           {/* <NavLink to='/blogs' activeStyle>
