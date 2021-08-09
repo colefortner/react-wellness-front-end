@@ -21,7 +21,25 @@ const TestDisplay = () => {
   let xaxis = post.daily_datum.map(x => x.date)
   let yaxis = post.daily_datum.map(x => x.weight)
 
+  function movingAverage(weights, days){
+    if(!weights || weights.length < days) {
+      return [];
+    }
 
+    let index = days -1;
+    const length = weights.length + 1;
+
+    const movingAverages = [];
+
+    while (++index < length) {
+      const daysSlice = weights.slice(index - days, index);
+      const sum = daysSlice.reduce((prev, curr) => prev + curr, 0);
+      movingAverages.push(sum / days);
+    }
+    return movingAverages;
+  }
+
+  // const movingAverages = movingAverage(yaxis, 3) 
 
   return (
     <div style={{marginTop: '100px', fontSize: '20px'}}>
@@ -36,6 +54,13 @@ const TestDisplay = () => {
             type: 'scatter',
             mode: 'lines+markers',
             marker: {color: 'red'},
+          },
+          {
+            x: xaxis,
+            y: movingAverage(yaxis, 3),
+            // type: 'scatter',
+            mode: 'lines+markers',
+            marker: {color: 'blue'},
           }
           // ,
           // {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
