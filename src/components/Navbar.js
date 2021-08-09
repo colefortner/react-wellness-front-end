@@ -2,9 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../style/navbar.scss';
   
-const Navbar = () => {
+const Navbar = props => {
+  let visible = false;
+  if(props.loggedInStatus === 'LOGGED_IN'){
+    visible = true;
+  } else {
+    visible = false;
+  }
   return (
-    
       <div>
         <div className='navbar'>
           <div className='nav-home'>
@@ -13,19 +18,22 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className='nav-links'>
-            <NavLink to='/dashboard' activeStyle>
+            {visible && <NavLink to='/dashboard' activeStyle>
               Dashboard
-            </NavLink>
+            </NavLink>}
           </div>
           <div className='nav-links'>
-            <NavLink to='/foods' activeStyle>
+            {visible && <NavLink to='/foods' activeStyle>
              Foods
-           </NavLink>
+           </NavLink>}
           </div>
-          <div className='nav-links'>
+          {visible && <div className='nav-links'>
             <NavLink to='/daily_data' activeStyle>
               Daily Data
             </NavLink>
+          </div>}
+          <div>
+            {visible && <p>Hi {props.userEmail}!</p>}
           </div>
 
           {/* <NavLink to='/blogs' activeStyle>

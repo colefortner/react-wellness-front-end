@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Home from './Home';
 import Dashboard from './Dashboard';
@@ -26,6 +26,7 @@ export default class App extends Component {
       .get("http://localhost:3001/logged_in", { withCredentials: true })
       .then(response => {
         // console.lot('logged in?', response);
+        console.log(response.data.user)
         if(response.data.logged_in && this.state.loggedInStatus === 'NOT_LOGGED_IN'){
           this.setState({
             loggedInStatus: 'LOGGED_IN',
@@ -56,17 +57,22 @@ export default class App extends Component {
 
   handleLogin(data){
     this.setState({
-      loggedInStatus: 'Logged_in',
+      loggedInStatus: 'LOGGED_IN',
       user: data.user
     })
   }
+
 
   render() {
     return (
       <div className='app'>
         <BrowserRouter>
         <div>
-          <Navbar />
+          <Navbar 
+            userEmail={this.state.user.email}
+            loggedInStatus={this.state.loggedInStatus}
+            user={this.state.user}
+          />
         </div>
           <Switch>
             <Route 
@@ -105,6 +111,7 @@ export default class App extends Component {
               <DailyData />
             )}
             />  
+            <Route path='*'><Redirect to="/" /></Route>
           </Switch>
         </BrowserRouter>
         <div>
