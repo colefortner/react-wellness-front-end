@@ -57,7 +57,7 @@ const TestDisplay = () => {
           },
           {
             x: xaxis,
-            y: movingAverage(yaxis, 3),
+            y: movingAverage(yaxis, 5),
             // type: 'scatter',
             mode: 'lines+markers',
             marker: {color: 'blue'},
